@@ -48,6 +48,6 @@ void	print_err(int i);
 void	freeall(char **str);
 int		test_cmd(t_args *argvs, char **argvn);
 int		count_args_cmd(char *cmd);
-void	ft_lucas(char **str, int len);
+void	quotes_trim(char **str, int len);
 
 #endif

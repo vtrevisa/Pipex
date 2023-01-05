@@ -20,10 +20,10 @@ $(LIBFT):
 	$(MAKE) -C $(LPATH)
 
 clean: 
-	rm $(NAME)
+	rm -f $(OBJ)
 
 fclean: clean
-	rm $(OBJ)
+	rm -f $(NAME)
 
 re: fclean all
 

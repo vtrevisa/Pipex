@@ -55,12 +55,12 @@ int	get_params(t_args *argvs, char **argv, char **envp)
 	argvs->args1 = ft_split(spc_to_np(argv[2]), -1);
 	argvs->args2 = ft_split(spc_to_np(argv[3]), -1);
 	argvs->paths = ft_split(pathfinder(envp), ':');
-	ft_lucas(argvs->args1, count_args_cmd(argv[2]));
-	ft_lucas(argvs->args2, count_args_cmd(argv[3]));
+	quotes_trim(argvs->args1, count_args_cmd(argv[2]));
+	quotes_trim(argvs->args2, count_args_cmd(argv[3]));
 	return (0);
 }
 
-void	ft_lucas(char **str, int len)
+void	quotes_trim(char **str, int len)
 {
 	int		i;
 	char	*tmp;

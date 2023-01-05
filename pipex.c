@@ -17,9 +17,9 @@ int	main(int argc, char **argv, char **envp)
 	t_args	argvs;
 	int		i;
 
-	init_var(&argvs, argv);
 	if (err_chk(argc, argv))
 		return (1);
+	init_var(&argvs, argv);
 	get_params(&argvs, argv, envp);
 	i = exec(&argvs, envp);
 	if (i)
