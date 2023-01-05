@@ -6,7 +6,7 @@
 /*   By: vitor <vitor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 17:13:48 by vitor             #+#    #+#             */
-/*   Updated: 2023/01/05 17:39:27 by vitor            ###   ########.fr       */
+/*   Updated: 2023/01/05 17:50:14 by vitor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ static int	child_1(t_args *argvs, char **envp)
 	close(argvs->fd[0]);
 	close(argvs->fd[1]);
 	close(argvs->fd1);
-	execve(argvs->cmd, argvs->args1, envp);
+	if (argvs->cmd)
+		execve(argvs->cmd, argvs->args1, envp);
 	return (0);
 }
 
@@ -32,7 +33,8 @@ static int	child_2(t_args *argvs, char **envp)
 	close(argvs->fd[0]);
 	close(argvs->fd[1]);
 	close(argvs->fd1);
-	execve(argvs->cmd, argvs->args2, envp);
+	if (argvs->cmd)
+		execve(argvs->cmd, argvs->args2, envp);
 	return (0);
 }
 
@@ -44,23 +46,16 @@ int	exec(t_args *argvs, char **envp)
 	if (pipe(argvs->fd) == -1)
 		return (1);
 	err = test_cmd(argvs, argvs->args1);
-	if (argvs->cmd != NULL)
-	{
-		argvs->pid1 = fork();
-		if (argvs->pid1 == 0)
-			child_1(argvs, envp);
-		free (argvs->cmd);
-	}
+	argvs->pid1 = fork();
+	if (argvs->pid1 == 0)
+		child_1(argvs, envp);
+	free (argvs->cmd);
 	err = test_cmd(argvs, argvs->args2);
-	if (argvs->cmd != NULL)
-	{
-		/* if (err == 127)
-			return (err); */
-		argvs->pid2 = fork();
-		if (argvs->pid2 == 0)
-			child_2(argvs, envp);
-		free (argvs->cmd);
-	}
+	argvs->pid2 = fork();
+	if (argvs->pid2 == 0)
+		child_2(argvs, envp);
+	free (argvs->cmd);
+
 	close(argvs->fd[0]);
 	close(argvs->fd[1]);
 	waitpid(argvs->pid1, NULL, 0);
