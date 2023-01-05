@@ -6,7 +6,7 @@
 /*   By: vitor <vitor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 17:13:48 by vitor             #+#    #+#             */
-/*   Updated: 2023/01/05 14:01:10 by vitor            ###   ########.fr       */
+/*   Updated: 2023/01/05 17:39:27 by vitor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,20 @@ int	exec(t_args *argvs, char **envp)
 		if (argvs->pid1 == 0)
 			child_1(argvs, envp);
 		free (argvs->cmd);
-		err = test_cmd(argvs, argvs->args2);
-		if (err == 127)
-			return (err);
+	}
+	err = test_cmd(argvs, argvs->args2);
+	if (argvs->cmd != NULL)
+	{
+		/* if (err == 127)
+			return (err); */
 		argvs->pid2 = fork();
 		if (argvs->pid2 == 0)
 			child_2(argvs, envp);
 		free (argvs->cmd);
-		close(argvs->fd[0]);
-		close(argvs->fd[1]);
-		waitpid(argvs->pid1, NULL, 0);
-		waitpid(argvs->pid2, NULL, 0);
 	}
+	close(argvs->fd[0]);
+	close(argvs->fd[1]);
+	waitpid(argvs->pid1, NULL, 0);
+	waitpid(argvs->pid2, NULL, 0);
 	return (err);
 }
