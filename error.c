@@ -49,8 +49,8 @@ int	err_chk(int argc, char **argv)
 
 int	test_cmd(t_args *argvs, char **argvn)
 {
-	char *tmp;
-	
+	char	*tmp;
+
 	argvs->index = -1;
 	while (argvs->paths[++argvs->index])
 	{

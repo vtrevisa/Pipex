@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef ERRORS_H
-# define ERROR_H
+# define ERRORS_H
 # define ERROR1 "PIPE_FAILED"
 # define ERROR2 "PID1_FAILED"
 # define ERROR3 "PID2_FAILED"

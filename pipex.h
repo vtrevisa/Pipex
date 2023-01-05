@@ -30,13 +30,12 @@ typedef struct s_args
 	char	*infile;
 	char	*outfile;
 	char	*cmd;
-	char *tmp;
+	char	*tmp;
 	int		fd[2];
 	int		fd1;
 	int		index;
 	int		pid1;
 	int		pid2;
-
 }t_args;
 
 char	*pathfinder(char *envp[]);
@@ -49,5 +48,6 @@ void	print_err(int i);
 void	freeall(char **str);
 int		test_cmd(t_args *argvs, char **argvn);
 int		count_args_cmd(char *cmd);
+void	ft_lucas(char **str, int len);
 
 #endif

@@ -55,7 +55,6 @@ int	exec(t_args *argvs, char **envp)
 	if (argvs->pid2 == 0)
 		child_2(argvs, envp);
 	free (argvs->cmd);
-
 	close(argvs->fd[0]);
 	close(argvs->fd[1]);
 	waitpid(argvs->pid1, NULL, 0);

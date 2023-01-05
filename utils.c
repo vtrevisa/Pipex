@@ -52,31 +52,25 @@ char	*spc_to_np(char *str)
 
 int	get_params(t_args *argvs, char **argv, char **envp)
 {
-	int	i;
-	int	max;
-	char *tmp;
-
-	i = 0;
 	argvs->args1 = ft_split(spc_to_np(argv[2]), -1);
 	argvs->args2 = ft_split(spc_to_np(argv[3]), -1);
 	argvs->paths = ft_split(pathfinder(envp), ':');
-	max = count_args_cmd(argv[2]);
-	while (i <= max)
-	{
-		
-		tmp = argvs->args1[i];
-		argvs->args1[i] = ft_strtrim(argvs->args1[i], "'");
-		free (tmp);
-		i++;
-	}
-	max = count_args_cmd(argv[3]);
-	i = 0;
-	while (i <= max)
-	{
-		tmp = argvs->args2[i];
-		argvs->args2[i] = ft_strtrim(argvs->args2[i], "'");
-		free (tmp);
-		i++;
-	}
+	ft_lucas(argvs->args1, count_args_cmd(argv[2]));
+	ft_lucas(argvs->args2, count_args_cmd(argv[3]));
 	return (0);
+}
+
+void	ft_lucas(char **str, int len)
+{
+	int		i;
+	char	*tmp;
+
+	i = 0;
+	while (i <= len)
+	{
+		tmp = str[i];
+		str[i] = ft_strtrim(str[i], "'");
+		free (tmp);
+		i++;
+	}
 }
