@@ -8,7 +8,8 @@ LIBFT	= $(addprefix $(LPATH)/, libft.a)
 LPATH	= ./Libft/
 
 #--MANDATORY--#
-SRC = pipex.c utils.c error.c process.c utils2.c
+SDIR = ./src
+SRC = $(addprefix $(SDIR)/, pipex.c utils.c error.c process.c utils2.c)
 OBJ = $(SRC:.c=.o)
 
 all: $(LIBFT) $(NAME)

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   process.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vitor <vitor@student.42.fr>                +#+  +:+       +#+        */
+/*   By: vtrevisa <vtrevisa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 17:13:48 by vitor             #+#    #+#             */
-/*   Updated: 2023/01/05 17:50:14 by vitor            ###   ########.fr       */
+/*   Updated: 2025/02/18 15:47:06 by vtrevisa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../includes/pipex.h"
 
 static int	child_1(t_args *argvs, char **envp)
 {

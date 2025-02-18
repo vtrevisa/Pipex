@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vitor <vitor@student.42.fr>                +#+  +:+       +#+        */
+/*   By: vtrevisa <vtrevisa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 17:13:50 by vitor             #+#    #+#             */
-/*   Updated: 2023/01/05 13:17:33 by vitor            ###   ########.fr       */
+/*   Updated: 2025/02/18 15:47:09 by vtrevisa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../includes/pipex.h"
 
 void	init_var(t_args *argvs, char **argv)
 {
