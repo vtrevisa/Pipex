@@ -6,7 +6,7 @@
 /*   By: vtrevisa <vtrevisa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 17:13:53 by vitor             #+#    #+#             */
-/*   Updated: 2025/02/18 15:47:03 by vtrevisa         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:09:27 by vtrevisa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int	err_chk(int argc, char **argv)
 {
 	if (argc != 5)
 	{
-		ft_printf("Invalis Args\n");
+		ft_printf("Invalis Args, use:\n");
+		ft_printf("./pipex \"file1\" \"cmd1\" \"cmd2\" \"file2\"\n");
 		return (1);
 	}
 	if (access(argv[1], R_OK))
